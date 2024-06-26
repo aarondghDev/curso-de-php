@@ -1,0 +1,101 @@
+Php: es un lenguaje de uso general de el lado del servidor, orientado para la creacion de contenido dinamico.
+
+Se maneja como un script que seria interpretado dentro del servidor y ya seria el servidor el que emita una respuesta
+---------------------------------------------------
+Caracteristicas de php: 
+
+-Orientado a desarrollo de webs dinamicas que pueden necesitar el acceso a info almacenada normalmente en una base de dato.
+
+-El codigo escrito en php es invisible para el navegador, seria el servidor el que lo interpretaria y devolveria una respuesta, ya sea de texto plano o normalmente de codigo html.
+
+-Se puede ampliar su funcionalidad a traves de extensiones.
+
+-Descataca por la gran capacidad de conexion con los distintos motores de base de datos (relacionales (mySqlq, postgresSql) o no relacionales (MongoBD, etc)).
+
+-Posee una amplia documentacion oficial (https://www.php.net/docs.php).
+
+-Permite aplicar tecnicas de programacion orientada a objetos.
+
+-Es muy versatil y podria implementarse con otros lenguajes mas complejos para lograr asi tareas mas complejas.
+---------------------------------------------------------------
+Que podemos hacer con php:
+
+-Scripts del lado del servidor: necesita de 3 elementos: un servidor web para interpretar el codigo y un navegador para mostrar los resultados
+
+-Permite scripts desde la linea de comando
+
+-Permite escribir (en cierta manera) aplicaciones de escritorio, es menos recomendable.
+
+------------------------------------------------------------------------------
+Vamos a necesitar: 
+
+-Acceso a un sevidor (usaremos Nginx o Apache en docker).
+
+-Base de datos.
+
+Podriamos tener este entorno usando:
+*GNU/Linux, el sistema operativo.
+*Apache, el servidor web.
+*MySql/MariaDB, el gestor de base de datos.
+*Pert/Php/Python, como lenguaje de programacion(principalmente php)
+
+Windos WAMP(https://www.wampserver.com/en/),o para Mac MAMP !!! (o XAMPP windows o linux o mac) usar uno de estos ya nos descargara todo lo que necesitamos para trabajar con backend, (php, apache y mysql)
+--------------------------------------------------------------------------
+Composer: Es un gestor de dependencias, es alguien que se encarga de ver las  distintas dependencias entre las distintos pluggins o componentes que traen las librerias, podria ser una simil a npm o yarn
+
+-------------------------------------------------------------------------------------
+_# son comentarios en un archivo docker
+
+---------------------------------------------------------------------------------------
+para iniciar el contenedor, en la termianl dentro de la carpeta de el proyecto(01-introduccion.iniciar-proyecto-composer en la carpeta de curso-php) usamos el comando "docker exec -ti php_8_app bash" el php_8_app puede variar dependiendo del nombre que le demos al contenedor y a la imagen, esto lo hacemos al haber levantado el contenedor con docker-compose -d (teniendo todos los archivos ya configurados para poder levantar el contenedor con las rutas y demas configuraciones). Tener en cuenta que el contenedor debe estar corriendo, esto lo podemos hacer en el dockerDesktop, o desde la terminal dentro de la carpeta del proyecto usando el comando 'docker-compose up -d'.
+
+------------------------------------------------------------------------------
+'docker ps' en la terminal muestra los contenedores que estan corriendo
+'docker stop <container_id>' con esto podemos para un contenedor en especifico
+
+-------------------------------------------------------------------------------
+'docker-compose up -d', levanta los contenedores
+
+'docker-compose down', tumba los contenedores
+
+'docker-compose build --no-cache', regenerar un contenedor
+
+'docker exec -ti <container-name> bash', en nuestro caso 'docker exec -ti php_8_app bash'
+
+'docker ps', nos muestra si hay contenedores corriendo
+
+'docker-compose ps' nos muestra si hay contenedores corriendo (no se bien la diferencia de este y el anterior, si es que la hay)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

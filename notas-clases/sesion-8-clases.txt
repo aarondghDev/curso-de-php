@@ -1,0 +1,71 @@
+Clase: ver en 'proyecto\08-funciones-clases-objetos\project\src\clases.php'.
+Una clase la podemos ver como una plantilla, modelo, o patron a partir de el cual podemos sacar distintas copias. Se definen una serie de parametros y/o funciones que que la especificarian para en un futuro poder tomar esa clases por ejemplo de coches, y sacar distintos coches, con diferentes tamaños, colores, numero de puestas, velocidad maxima, arrancar podria ser una funcion de coche como tambien frenar, y demas caracteristicas que queramos, y esto aplica con cualquier cosa.
+
+Para usar una clase debemos instanciarla en un objeto que seria el que adopte todas las caracteristicas de la clase, y seria una variable, ej:
+ //clase:
+ class Coche {
+        public $marca;
+        public $velocidad_maxima;
+
+        function getMarca(){
+            return $this->marca;
+        }
+
+        function setMarca($marca) {
+            $this->marca = $marca;
+        }
+    }
+//instanciacion de la clase:
+    $auto = new Coche();
+
+-------------------------------------------------------
+ver en 'proyecto\08-funciones-clases-objetos\project\src\clases.php'
+!!!! Importante '->' se usa para entrar en las propiedades y methodos/funciones de los objetos (creados de las clases, no se si sirva para las clases directamente), ej:
+    $auto ->setMarca("Fiat");
+    var_dump($auto);
+    echo $auto->getMarca();
+-------------------------------------------------------
+A las clases le podemos añadir algo llamado constructor (es una funcion) que tendra como parametros las variables que quermos añadir a nuestros objetos y le setea el valor que le pasemos por parametros, el cual permite que al instanciar la clase en un objeto podamos definir estas variables, ej:
+    class Coche {
+        public $marca;
+        public $velocidad_maxima;
+
+        function __construct($marca, $velocidad_maxima){ //!!!
+            $this->marca = $marca;
+            $this->velocidad_maxima = $velocidad_maxima;
+        }
+
+        function getMarca(){
+            return $this->marca;
+        }
+
+        function setMarca($marca) {
+            $this->marca = $marca;
+        }
+    }
+-------------------------------------------------------
+Modificadores de acceso:
+    class Coche {
+        public $marca;
+        public $velocidad_maxima;
+    }
+    En este ejemplo vemos que los atributos se definen con la palabra reservada "public", esto quiere decir que estas pueden sr accedidas desde cualquier sitio, tenemos:
+        -public
+        -private
+        -protectec
+-------------------------------------------------------
+Name space: es una forma de encapsular elementos (funciones, clases, que esten relacionadas entre si) agrupandolos. Esto nos brinda mayor modularidad e incluso llegar a poder definir paquetes. Tambien nos permite poder acceder a una funcion (atravez de un namespace que vendria siendo un identificador al espacio de memoria donde alojanmos este elemento)sin la necesidad de duplicarla con un required.
+
+podemos meter mas atributos en una clase, sin necesidad de estar en el mismo archivo(supongo que habra que estar en la misma carpeta)
+-------------------------------------------------------
+Metodos/clases abstractos: aparece cuando el metodo/clase padre tiene un metodo con un nombre pero necesita del metodo hijo para completar la tarea.
+
+ver en 'proyecto\08-funciones-clases-objetos\project\src\clases-metodos-abstractos.php'
+-------------------------------------------------------
+Interfaces: permite certificar las condiciones con las que se va a generar una clase con la que se implemente
+
+ver en 'proyecto\08-funciones-clases-objetos\project\src\interfaces.php'
+-------------------------------------------------------
+Traits: son usados para declarar metodos que se pueden reutilizar dentro de distintas clases, a diferencia de los metodos abstractos esto nos permite usar solo parte del metodo.
+
+ver en 'proyecto\08-funciones-clases-objetos\project\src\traits.php'

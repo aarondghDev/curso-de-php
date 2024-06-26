@@ -1,0 +1,42 @@
+Introduccion (funciones):
+
+Para definir funciones en php usamos la palabra reservada 'function'-> nombre_function(argumento1, arg2//no tienen que ser dos){
+    codigo...
+}
+ej:
+    function nombre(arg) {
+        return $valor_a-retornar;
+    }
+--------------------------------------------------------------------
+Modificar una cadena: tiene una sintaxis especifica, notar en el parametro que definimos en la funcion lleva un &, esto es necesario para que la funcion nos de el resultado esperado. ej =
+
+        function modificar_cadena(&$str){
+            $str .= "-Modificado";
+        }
+        $texto = "texto inicial";
+        echo $texto;
+        modificar_cadena($texto);
+        echo $texto;
+
+Tambien le podemos dar un valor por defecto en los parametros por si no se le indica uno a la hora de llamar a la funcion, ej:
+    function mostrar_comida($comida = "pollo"){
+            echo "Hoy tenemos $comida para comer";
+        }
+        echo"Por defecto: ";
+        mostrar_comida();
+        echo"<br>con parametro escrito: ";
+        mostrar_comida("lentejas");
+--------------------------------------------------------------------
+Funciones con variables (declarado como string los nombres de las funciones), ej: ver en 'proyecto\08-funciones-clases-objetos\project\src\introduction.php'
+
+    function suma2($num1 = 2, $num2 = 1){
+        return $num1 + $num2;
+    }
+    function mostrar_comida($comida = "pollo"){
+            echo "Hoy tenemos $comida para comer";
+        }
+
+    $function1 = "suma2";
+    echo $function1(2, 5)."<br>";
+    $function2 = "mostrar_comida";
+    echo $function2();

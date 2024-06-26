@@ -1,0 +1,81 @@
+Ir a 'proyecto\03-tipos-variables-const-operadores\3.1-tipos_escaleras\project\src' para ver ejemplos de tips de datos en php
+-----------------------------------------------
+Ir a 'proyecto\03-tipos-variables-const-operadores\3.1-tipos_escaleras\project\src\02.integer.php' para ver ejemplos de como ve los numeros en hexadecimal en octal, binario, normal
+-----------------------------------------------
+echo 'L\'antañon' // Si queremos añadir comillas deberemos poner un \  que es una caracter de ruptura y lo usamos para que no linterprete como un cierre de cadena 
+------------------------------------------------------
+!!!!!!!!!!!!!Objetos: ver en "proyecto\03-tipos-variables-const-operadores\3.2-tipos_compuestos\project\src\02.objetos.php"
+para llamar a una funcion dentro de un objeto debemos usar -> para entrar en la propiedad que queramos ver, ej:
+    <?php 
+    class coche{
+        function contamina() {
+            echo"arranco y contamino";
+        ;}
+    };
+
+    $autoMovil = new coche;
+    // print($autoMovil);
+    var_dump ($autoMovil);
+    $autoMovil ->contamina(); !!!!!!!
+    ?>
+---------------------------------------------------------
+Podemos ver lo que hay dentro de un archivo de texto asi: (ver en 'proyecto\03-tipos-variables-const-operadores\3.3-tipos_especiales\project\src\index.php')
+    <?php 
+
+        $file = fopen("test.txt", "r");
+
+        // Output
+        while (!feof($file)){
+            $line = fgets($file);
+            echo $line.'<br>';
+        }
+
+        fclose($file);
+    ?>
+-----------------------------------------------------
+Syntaxis para definir constantes: (ir a "proyecto\03-tipos-variables-const-operadores\3.5-variables_constantes\project\src\index.php" para ver ejemplos.)
+
+-normalmente el nombre se define por costumbre en mayuscula.
+-No es necesario poner el signo $ como con las variables.
+-Se pueden definir de dos manera, la normal (ver ejemplos abajo) y con el 'define()'.
+
+Ejemplos:
+        const NOMBRE2 = "un valor";
+        var_dump(NOMBRE2);
+
+        define("NOMBRE1", "Otro valor");
+        var_dump(NOMBRE1);
+-------------------------------------------------------
+PHP ofrece una serie de constantes predefinidas:(ver en 'proyecto\03-tipos-variables-const-operadores\3.5-variables_constantes\project\src\index.php')
+- _LINE_
+- _FILE_
+- _DIR_
+- _FUNCTION_
+-etc
+---------------------------------------------------------------
+// PHP ofrece una serie de variables globales predefinidas: (Ver en 'proyecto\03-tipos-variables-const-operadores\3.6-variables_globales\project\src\index.php')
+var_dump($_GLOBALS);
+var_dump($_SERVER);
+var_dump($_REQUEST);
+var_dump($_POST);
+var_dump($_GET);
+var_dump($_FILES);
+var_dump($_ENV);
+var_dump($_COOKIE);
+-------------------------------------------------------------
+Recordar si queremos usar una variable y no esta definida global la podriamos usar dentro de una funcion asi:
+
+    $x = 75;
+    $y = 25;
+
+    function addition() {
+        echo $GLOBALS['x'] + $GLOBALS['y'];
+    }
+    addition();
+
+    ver en 'proyecto\03-tipos-variables-const-operadores\3.6-variables_globales\project\src\index.php'
+-------------------------------------------------------------------
+!!!! Chuleta de que informacion interesante podemos sacar de las variable predefinida $_SERVER, ver en 'proyecto\03-tipos-variables-const-operadores\3.6-variables_globales\project\src\peticiones.txt'
+
+
+

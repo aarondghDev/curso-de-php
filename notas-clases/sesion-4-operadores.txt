@@ -1,0 +1,38 @@
+Que es un operador: es una expresion que toma uno o mas valores y que produce un valor nuevo.
+
+Estan los unitarios que toman un solo valor, los binarios que toman dos y los ternarios que toman 3 valores.
+
+Precedencia de operadores: es un concepto que se basa en que la precedencia de un operador nos indica el orden de ejecucion del operador en relacion al resto, si es que se ejecutan conjuntamente. (ver ejemplo en 'proyecto\04-operadores\project\src\operadores.php')
+
+Operador de asignacion '=' ver en 'proyecto\04-operadores\project\src\operadores.php'
+---------------------------------------------------------
+Operados '.': sirve para concatenar elementos, ver ej en 'proyecto\04-operadores\project\src\operador-punto.php'.
+---------------------------------------------------------
+Operadores aritmeticos: ver en 'proyecto\04-operadores\project\src\operadores-aritmeticos.php'
+--------------------------------------------------------
+Operadores de asignacion: ver en 'proyecto\04-operadores\project\src\operador-asignacion.php'
+
+Ejemplos de operaciones y asignaciones directas en la variable ( +=, -=, etc)  ver en 'proyecto\04-operadores\project\src\operador-asignacion.php'
+---------------------------------------------------------
+PHP copia los valores cuando los definimos en una variable, en vez de pasarlo por referencia los pasa por valor por defecto. Para que no copie el valor si no que lo reasigne(apunte a el mismo espacio de memoria donde se guardo origimnalmente) usamos '&', ej:
+        $a = 6;
+        $b = &$a;
+    Aqui le estamos reasginando el valor por referencia de $a en la variable $b, no se lo estamos copiando si no que le estamos pasando el espacio en memoria donde esta el valor de la variable.
+
+    Cuando hacemos una asignacion por referencia (usando &) tanto $a como $b apuntan a el mismo espacio de memoria, por lo que si modificamos alguna de estas dos variables las dos se veran afectadas.
+
+    En cambio si hacemos una asignacion por valor, 
+            $a = 6;
+            $b = $a;
+    $b estaria copiando el valor de $a asignando otro espacio de memoria para este valor de $b, por lo cual no estarian vinculados $a ni $b.
+
+    Ver ej en 'proyecto\04-operadores\project\src\operador-asignacion.php'
+-------------------------------------------------------
+Nave espacial '<=>': seria como un true o false si es mayor o no pero la respuesta la da en 1=true -1=false y 0=iguales, supongo que su uso es para esto de si son iguales de un 0, ver ejemplos en 'proyecto\04-operadores\project\src\operadores-comparacion.php'
+    (        
+    $x = 5;
+    $y = 10;
+    echo ($x <=> $y).'<br>';
+        )
+------------------------------------------------------
+Operador ternario, ver en 'proyecto\04-operadores\project\src\operador-ternario.php'

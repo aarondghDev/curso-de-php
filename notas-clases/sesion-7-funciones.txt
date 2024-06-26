@@ -1,0 +1,137 @@
+Funciones para strings: ver ejemplos en 'proyecto\07-funciones-php\project\src\funciones-string.php'.
+
+1. strlen(): seria para ver la longitud de los string.
+
+2. str_word_count(): seria para contar el numero de palabras.
+
+3. strrev(): Invertir un string. "Helloxx world" -> "dlrow xxolleH".
+
+4. strpos(): Buscar una coincidencia. ESta necesita dos argumentos, la cadena que vamos a revisar y lo que queremos que consiga/coincida, ej:
+strpos($txt, "w");
+
+Y el resultado de esta funcion nos dira el espacio de memoria en el que se encuentra el elemento que queremos encontrar ('w' en este caso).
+
+5. strreplace(): Reemplazar un contenido, esta necesita tres argumentos, lo que queremos cambiar, por lo que queremos que lo cambie y por ultimo donde hacer le cambio(la variable)
+$txt = "Helloxx world";
+str_replace("world", "place", $txt);
+-------------------------------------------------------------------
+Constantes predefinidas en php para enteros, ver ej en 'proyecto\07-funciones-php\project\src\funciones-math.php':
+1. PHP_INT_MAX = 9223372036854775807
+2. PHP_INT_MIN = -9223372036854775808
+3. PHP_INT_SIZE = 8
+--------------------------------------------------------------------
+Funciones para numeros enteros, ver ej en 'proyecto\07-funciones-php\project\src\funciones-math.php':
+1. is_int(): Ver si es entero o no. // tiene otras dos alternativas a esta que serian 'is_integer()' y 'is_long()'.
+---------------------------------------------------------------------
+Constantes predefinidas en php para decimales, ver ej en 'proyecto\07-funciones-php\project\src\funciones-math.php':
+PHP_FLOAT_MAX = 1.7976931348623E+308
+PHP_FLOAT_MIN = 2.2250738585072E-308
+PHP_FLOAT_DIG = 15
+---------------------------------------------------------------------
+Funciones para numeros decimales, ver ej en 'proyecto\07-funciones-php\project\src\funciones-math.php':
+1. is_float(): Ver si es decimal o no. // tiene otra alternativa a esta que seria 'is_double()'.
+-----------------------------------------------------------------
+Ver si es infinito: si supera el valor de PHP_FLOAT_MAX pasaria a devolvernos 'INF', ver ej en 'proyecto\07-funciones-php\project\src\funciones-math.php'
+    <?php
+    echo PHP_FLOAT_MAX."<br>";
+    $x = 1.9e411;
+    var_dump($x); -> devolveria 'INF'
+    ?>
+----------------------------------------------------------------------
+NaN: es lo que devolveria si le pedimos que imprima algo que no es un numero como tal, como el coseno de 8 por ejemplo, ver ej en 'proyecto\07-funciones-php\project\src\funciones-math.php':
+        $x = acos(8); //coseno de 8
+        var_dump($x); -> devolveria 'NaN'
+----------------------------------------------------------------------
+Cadenas de numeros, ver ej en 'proyecto\07-funciones-php\project\src\funciones-math.php':
+        $x = 5985;
+        var_dump(is_numeric($x)); -> true
+        //
+        $x = '5985';
+        var_dump(is_numeric($x)); -> true
+        //
+        $x = '59.85'+100;
+        var_dump(is_numeric($x)); -> true
+        //
+        $x = 'Hello';
+        var_dump(is_numeric($x)); -> false
+----------------------------------------------------------------------
+Convertir desde cadenas y floats a enteros, ver ej en 'proyecto\07-funciones-php\project\src\funciones-math.php':
+1. Ejemplo de float a int: 
+$x = 234365.777;
+        $int_cast = (int)$x;
+        var_dump($int_cast);
+
+2. Ejemplo de String de numeros a int:
+        $x = '234365.777';
+        $int_cast = (int)$x;
+        var_dump($int_cast);
+----------------------------------------------------------------------
+Funciones matematicas ver ej en 'proyecto\07-funciones-php\project\src\funciones-math.php':
+1. pi(): devuelve el valor de 'pi'.
+
+2. max(): devuelve el valor mas alto.
+
+3. min(): devuelve el valor mas bajo.
+
+4. abs(): convierte un numero ya sea decimal o negativo en entero.
+
+5. round(): Redondear un valor.
+
+6. rand(): numeros aleatorios, puedes poner parametros para que busque un numero aleatorio entre dos valores, ej:
+
+echo "Numero aleatorio con parametros, entre 20 y 50 en este caso: ".rand(20, 50)."<br>"
+
+o lo puedes usar sin parametros para que genere un numero al azar.
+----------------------------------------------------------------------
+Date: ver en 'proyecto\07-funciones-php\project\src\date-time.php'.
+Cuando trabajamos con fecha en php hay que definir el orden de el dia, mes y año, ej:
+
+    $today = date("d/m/y");
+    //o
+    $today = date("y/m/d");
+    //o si queremos uno solo
+    $today = date("y"); // o "d" si queremos solo el dia o "m" para el mes, existen mas, podemos investigar en internet
+----------------------------------------------------------------------
+// &copy = Simbolo 'c' con año anterior y año actual, ej: 
+        &copy; 2020-<?php echo date("y");?>
+----------------------------------------------------------------------
+Hora: 'proyecto\07-funciones-php\project\src\date-time.php'
+     *Formato de hora:
+     * 'H' -> hora en 24
+     * 'h' -> hora en 12
+     * 'i' -> minutos
+     * 's' -> segundos
+     * 'a' -> meridiano (am o pm)
+     ej:
+     echo "La hora es: ".date("h:i:s")."<br>";-> sin am o pm
+
+     echo "La hora es ".date("h:i:sa")."<br>"; ->con am o pm
+----------------------------------------------------------------------
+ver en 'proyecto\07-funciones-php\project\src\date-time.php'
+date_default_timezone_set("Europe/Madrid");: funcion para cambiar la zona horaria !!!!!!!
+---------------------------------------------------------------------
+ver en 'proyecto\07-funciones-php\project\src\date-time.php'
+- mktime() : Crear una fecha y le podemos pasar por parametros = ("hora:minuto:segundo mes-dia-año")
+
+ej:
+        $d = mktime(11, 12, 54, 8, 12, 2012);
+// luego tenemos que pasarle el orden de la fecha y la hora y la variable enlka que hemos creado nuestra fecha
+        echo "La fecha de creacion es: ".date("y-m-d h:i:sa", $d);
+---------------------------------------------------------------------
+ver en 'proyecto\07-funciones-php\project\src\date-time.php
+- strtotime():Convertir un string a una fecha, puede tener como parametros = ("hora:minuto:segundo mes-dia-año"). Ej:
+        
+        $h = strtotime("2:00pm 15 April 2026");
+        echo "El string se cambio a: ".date("h:i:sa d-m-y", $h);
+---------------------------------------------
+!!!!
+Ver ejemplos de include en 
+'proyecto\07-funciones-php\project\src\vars-include.php'
+'proyecto\07-funciones-php\project\src\include.php' y en 'proyecto\07-funciones-php\project\src\index.php', lo que hicimos fue pasar algo de include.php y vars-include.php y lo pintamos en index.php
+
+!!!Include tiene una alternativa que es 'include_once' que hace que solo se incluya una vez el archivo por si lo ponemos dos veces( no entendi mucho, investigar)
+
+- Include y requiere: son dos metodos bastante interesantes, su finalidad es traer codigo de otro archivo.
+
+Una diferencia entre estos dos es que require produce un error fatal y detendra el script si algo que no debe pasar pasa, mientras que include solo lanza una advertencia y el script continua.
+

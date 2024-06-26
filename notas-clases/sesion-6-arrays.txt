@@ -1,0 +1,76 @@
+Arrays: existen 3 tipos de arrays; los indexados que son los estandar, los asociativos, y los multi-dimensionales que contienen otro array en ellos.
+
+Como definimos un array:
+
+array(
+    "persona_1" => "manolo",
+    "persona_2" => "pedro"
+);
+
+y
+
+$array = [
+    "persona_1" => "manolo",
+    "persona_2" => "pedro"
+]
+-------------------------------------------------------------
+Function "print_r": se usa para mostrar variables, ej:
+    <?php 
+        $a = array ('a' => 'manzana', 'b' => 'pera', 'c' => 'pera');
+        print_r($a);
+    ?>
+
+    Nos muestra de manera mas detallada toda la informacion sobre el elemento, array en este caso, el print normal se limita a impirmir el texto por pantalla.
+-------------------------------------------------------------
+Contar elementos de un array con count(), ej:
+echo "numero de elementos en el array: ".count($array)
+ver ej en 'proyecto\06-arrays\project\src\recorrer_arrays.php' y en 'proyecto\06-arrays\project\src\recorrer_arrays.php'
+----------------------------------------------------------------------
+Ordenar arrays: ver en 'proyecto\06-arrays\project\src\manejando-arrays.php'.
+
+-Si queremos ordenar un array de manera alfabetica usamos sort():
+    $frutas = ["limon", "naranja", "banana", "albaricoque", "manzana"];
+    sort($frutas);
+    echo print_r($frutas, 1);
+-Si queremos ordenar un array de manera alfabetica invertida usamos rsort():
+    echo "<h2>Otro ejemplo:</h2>";
+    rsort($frutas);
+    echo print_r($frutas, 1);
+-------------------------------------------------------------------------Unir arrays: ver ej en 'proyecto\06-arrays\project\src\manejando-arrays.php'.
+Podemos unir dos arrays usando array_merge():
+    $a = ["1", "2", "3"];
+    var_dump($a);
+    $b = ["primero del segundo", "5", "6"];
+    var_dump($b);
+
+    $c = array_merge($a, $b);
+    var_dump($c);
+------------------------------------------------------------------------
+Cambiar orden del array de manera alfabetica o numerica (normal y a la inversa): ver en 'proyecto\06-arrays\project\src\manejando-arrays.php'.
+    krsort($var);
+    var_dump($var);
+    krsort($var);
+    ksort($var);
+    asort($var);
+    rsort($var);
+    sort($var);
+-------------------------------------------------------------------------
+    Diferencias entre arrays y elementos en comun: ver en 'proyecto\06-arrays\project\src\manejando-arrays.php'
+    echo "<h2>Diferencia entre arrays:</h2>";
+    // Diferencias entre arrays
+    $frutas = ["limon", "naranja"];
+    $frutas2 = ["limon", "mandarina"];
+    var_dump( $frutas);
+    var_dump( $frutas2);
+    echo print_r(array_diff($frutas, $frutas2), 2);
+
+    echo "<h4>Elementos en comun de los arrays:</h4>";
+    // Elementos en comun:
+    echo print_r(array_intersect($frutas, $frutas2), 2);
+----------------------------------------------------------------
+Convertir un array en un string y lo contrario: ver en 'proyecto\06-arrays\project\src\manejando-arrays.php'
+
+    echo print_r(implode(" ", $frutas), 1)
+    ///string a un array:
+    echo print_r(explode(" ", $frutas), 1)
+------------------------------------------------------------------

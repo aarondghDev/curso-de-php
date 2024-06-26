@@ -1,0 +1,54 @@
+Estructuras de control: mediante estas vamos a poder modificar la ejecucion de nuestro codigo para ejecutar una cosa u otra, dependiendo de las condiciones que especifiquemos en la logica de nuestro codigo.
+
+Estas estructuras de control incluyen tanto los condicionales como los bucles.
+----------------------------------------------------------------------
+Condicionales:
+-if: if(condicion) {intrucciones}
+
+-if else: if(condicion) {intrucciones};
+          if else(condicion) {intrucciones}
+
+-segun (investigar, creo que es el swicth): segun(valor)
+                        valor1 INSTRUCCION
+                        valor2 INSTRUCCION
+                        valor3 INSTRUCCION
+                        ...
+                        valorn INSTRUCCION
+
+-While: while(condicion) HACER
+            INSTRUCCION
+
+-do: do(n veces)
+        INSTRUCCIONES
+
+-for: for(i=valor_inicial; i <= valor_final; i++) HACER
+        INSTRUCCIONES
+-------------------------------------------------------------------------
+!!!!!!!!En php podemos trabajar con otra sintaxis las estucturas de control, ej:
+/// Sintaxis alternativa
+//if y else
+$a = 40;
+$b = 40;
+if($a > $b):
+    echo'A es mayor que B<br>';
+    var_dump(true);
+else:
+    echo'A no es mayor que B<br>';
+    var_dump(false);
+endif;
+
+ver ej en 'proyecto\05-estructuras-de-control\project\src\condicionales.php'
+---------------------------------------------------------------------
+!!!!!! dato importante, las etiquetas en php (<?php ?>) estarian conectadas todas entre si, por lo que las variables que definamos dentro estaran conectadas tambien (averiguar si las funciones y demas tambien estarian conectadas). ver ej en 'proyecto\05-estructuras-de-control\project\src\condicionales.php' especificamente en la seccion 'Sintaxis alternativa para estructuras de control'.
+
+Esta sintaxis nos sirve para poder controlar mejor las condiciones en diferentes lugares/etiquetas de nuestro codigo, y meter tags de html con tags de php para que pinte una cosa u otra, ver ej.
+-------------------------------------------------------------------------
+for: se pueden agragar mas de un parametro (los que queramos, pero tampoco conviene liar con muchos):
+for($i = 1, $j = 0; $i <= 10; $j += $i, print $i.'<br>', $i++);
+ver en 'proyecto\05-estructuras-de-control\project\src\bucles.php' en la seccion de 'for'
+-------------------------------------------------------------
+unset($valor);: La función unset() se utiliza en PHP para destruir una variable especificada.
+
+Ver ej en 'proyecto\05-estructuras-de-control\project\src\bucles.php'
+-------------------------------------------------------------
+Break y continue: sirven para controlar mas las estructuras de control, dependiendo de unas condiciones que le digamos rompera(break) el bucle o se saltara una iteracion(continue), ver ej en 'proyecto\05-estructuras-de-control\project\src\bucles.php'

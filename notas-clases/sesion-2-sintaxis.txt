@@ -1,0 +1,161 @@
+Un dato y importancia de usar php es que podemos integrarlo a otro tipo de lenguaje como html, se necesita usar las tags de apertura '<?php' y la de cierre '?>' para implementarlo. ej:
+
+<?php 
+echo "hello world"; 
+?></h1>
+---------------------------------------------------------------
+
+Comentarios de linea simple:
+
+<?php
+
+// Codigo de PHP
+
+?>
+
+------------------------------------------------------------
+Ejemplo de como poner un texto en la pantalla de la pagina:
+<!DOCTYPE html>
+<html lang="en">
+</head>
+<body>
+    <h1>My first PHP page</h1>
+    <?php 
+    // codigo php
+    echo "hola mundo"; // con echo "hola mundo"
+    echo "hola mundo<br>"; // si usamos <br> salta a la sig linea
+    echo "hola mundo";
+    ?>
+</body>
+</html>
+--------------------------------------------------------
+Aqui estamos definiendo una variable e implementandola:
+
+<!DOCTYPE html>
+<html lang="en">
+</head>
+<body>
+    <h1>Otro ejemplo</h1>
+    <?php 
+        // codigo php
+    ?>
+
+    <?php 
+        $txt = "PHP";      !!! Seria el $ nombreDeLaVariable = lo que queramos definir
+        echo "I love $txt";           !!!aqui
+    ?>
+    
+    <a href="./">volver al index</a>
+</body>
+</html>
+--------------------------------------------------------
+'docker-compose up -d', levanta los contenedores
+
+'docker-compose down', tumba los contenedores
+
+'docker-compose build --no-cache', regenerar un contenedor
+
+'docker exec -ti <container-name> bash', en nuestro caso
+
+'docker exec -ti php_8_app bash'
+
+'docker ps', nos muestra si hay contenedores corriendo
+
+'docker-compose ps' nos muestra si hay contenedores corriendo (no se bien la diferencia de este y el anterior, si es que la hay)
+------------------------------------------------------------------
+PHP es case sensitive:
+
+    <?php
+        $color = "red";  //variable
+        echo "My car is $color <br>"
+        //estos ejemplode de abajo dan error, php es case sensitive
+        //echo "My car is $Color <br>"
+        //echo "My car is $COLOR <br>"
+    ?>
+-------------------------------------------------------------------------
+Funcion "print": se puede usar de dos maneras =
+`print 'content'` o `print ('content')`
+
+Ej:
+ <?php 
+        print "<h2>PHP es divertido<br>"
+    ?>
+-------------------------------------------------------------------------
+Function "print_r": se usa para mostrar variables, ej:
+    <?php 
+        $a = array ('a' => 'manzana', 'b' => 'pera', 'c' => 'pera');
+        print_r($a);
+    ?>
+
+    Nos muestra de manera mas detallada toda la informacion sobre el elemento, array en este caso, el print normal se limita a impirmir el texto por pantalla.
+------------------------------------------------------------------------
+Las instrucciones en php casi siempre deben acabar en ;.
+
+<?php
+    echo "Linea 1<br>";
+    echo "Linea 2";
+    ?>
+
+!!!! Cuidado con poner contenido ajeno dentro de las etiquetas php:
+
+<?php
+    echo "Pero esta va a fallar";
+    //Esto sig va a a fallar
+    <p>codigo html que no deberia estar aqui</p>  // codigo html dentro de la tag php, no se puede
+    ?>
+-----------------------------------------------------
+PHP es case no sensitive en las funciones propias:
+
+echo 'Hola Mundo';
+Echo 'Hola Mundo';
+ECHO 'Hola Mundo';
+
+estas tres estarian bien definidas
+-----------------------------------------------------
+Identificadores: es un concepto global que se tiene del lenguaje, con un identificador podemos crear nuevas funciones, variables y constantes, para hacerlo debemos asignarles un nombre que este sera el identificador.
+
+Los identificadores en PHP tienen una seria de reglas a cumplir: 
+1. Debe empezar por una letra o por un sigo '_'.
+2. No pueden contener espacios en blanco
+3. No puede ser una palabra clave
+4. Despues de que empiece por un '_' debe tener cualquier cantidad de letras, lineas o numeros.
+5. Solo puede contener valores alfa numericos (A-z, 0-9 y _).
+6. Distinguen entre mayusculas y minusculas (son case sensitive).
+7. PHP es un lenguaje de tipado libre, esto quiere decir que no hay que definir los tipos de dato, aunque es buena practica hacerlo.
+
+Ejemplos validos:
+Este_identificador_es_valido
+Este_tambien
+esteEsOtro1
+esteEsOtro2
+
+Ejemplos invalidos:
+Este identificador_es_invalido// tiene espacio
+123_Identificador_invalido //empieza por numero
+PHP_VERSION // ya existe esta constante predefinida
+-----------------------------------------------------
+!!!Variables: una variables esta compuesta por un identificador asociado a un espacio de memoria.
+
+Constantes: a diferencia de una variable, la constante no puede modificarse durante la ejecucion.
+
+Ambas suelen estar asociadas a un determinado tipo, no es obligatorio definir los tipos de datos en php pero si es recomendable hacerlo.
+
+!!! Syntaxis para definir variables:
+1. Siempre definimos las variables con el signo de '$' seguido del nombre de la variable
+2. Debe empezar por una letra o por un sigo '_'.
+3. No pueden contener espacios en blanco
+4. No puede ser una palabra clave
+5. Despues de que empiece por un '_' debe tener cualquier cantidad de letras, lineas o numeros.
+6. Solo puede contener valores alfa numericos (A-z, 0-9 y _)
+7. Distinguen entre mayusculas y minusculas (son case sensitive).
+8. PHP es un lenguaje de tipado libre, esto quiere decir que no hay que definir los tipos de dato, aunque es buena practica hacerlo.
+
+!!! Scope (o ambito de la aplicacion): existen tres ambitos:
+
+-local
+-global
+-static - Cuando una funcion acaba todas estas variables locales se borran, sin embargo podemos querer que estas variables no se borren y para ello estan las variables static, ver ej en '05-variables'
+
+Ver ejemlos de cada una en "proyecto\02.4-variables\project\src\index.php"
+--------------------------------------------------------------
+Palabras clave: echo, if , do, else, print
